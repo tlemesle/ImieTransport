@@ -1,0 +1,45 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+     encoders:
+       Symfony\Component\Security\Core\User\User: plaintext
+       UserBundle\Entity\User: sha512
+
+     role_hierarchy:
+       ROLE_ADMIN:       ROLE_USER
+       ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+     providers:
+       in_memory:
+         memory:
+           users:
+             user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+             admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+       fos:
+        id: fos_user.user_provider.username
+       all_users:
+        chain:
+          providers: [fos, in_memory]
+
+     firewalls:
+      dev:
+        pattern:  ^/(_(profiler|wdt)|css|images|js)/
+        security: false
+      main_login:
+        pattern:   ^/(.+)/login$
+        anonymous:    true
+      main:
+        pattern:   ^/
+        anonymous:    false
+        provider: all_users
+        form_login:
+          login_path: fos_user_security_login
+          check_path: fos_user_security_check
+          default_target_path:  imie_transport_homepage1
+        logout:
+          path:       fos_user_security_logout
+          target:     fos_user_security_login
+
+     # access_control:
+#        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSTLY }

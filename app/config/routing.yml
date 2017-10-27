@@ -1,0 +1,48 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+
+
+imie_transport:
+    resource: "@ImieTransportBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+
+imie_transport_homepage1:
+    path:     /
+    defaults: { _controller: ImieTransportBundle:Home:home}
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+    prefix:   /{_locale}
+
+#login:
+#    path: /login
+#    defaults:
+#        _controller: UserBundle:Security:login
+
+#login_check:
+#    path: /login_check
+
+#logout:
+#    path: /logout
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /{_locale}
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /{_locale}/profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /{_locale}/register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /{_locale}/resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /{_locale}/profile

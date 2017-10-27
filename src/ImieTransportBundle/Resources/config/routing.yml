@@ -1,0 +1,43 @@
+imie_transport_homepage:
+    path:     /home/
+    defaults: { _controller: ImieTransportBundle:Home:index }
+
+imie_transport_add_product:
+    path:     /add/produit
+    defaults: { _controller: ImieTransportBundle:Home:addProduct }
+
+imie_transport_add_rayon:
+    path:    /add/rayon
+    defaults: { _controller: ImieTransportBundle:Home:addRayon }
+
+imie_transport_edit_produit:
+    path:    /edit/produit/{id}
+    defaults: { _controller: ImieTransportBundle:Home:editProduit }
+
+imie_transport_edit_rayon:
+    path:    /edit/rayon/{id}
+    defaults: { _controller: ImieTransportBundle:Home:editRayon }
+
+imie_transport_remove_produit:
+    path:    /remove/produit/{id}
+    defaults: { _controller: ImieTransportBundle:Home:removeProduit }
+
+imie_transport_remove_rayon:
+    path:    /remove/rayon/{id}
+    defaults: { _controller: ImieTransportBundle:Home:removeRayon }
+
+imie_transport_new_sortie:
+    path:    /sortie
+    defaults: { _controller: ImieTransportBundle:Sortie:newSortie }
+
+imie_transport_list_produit:
+    path:    /produit
+    defaults: { _controller: ImieTransportBundle:Home:listProduit }
+
+imie_transport_list_rayon:
+    path:    /rayon
+    defaults: { _controller: ImieTransportBundle:Home:listRayon }
+
+imie_transport_chartre:
+    path:    /charte
+    defaults: { _controller: ImieTransportBundle:Home:charte }
